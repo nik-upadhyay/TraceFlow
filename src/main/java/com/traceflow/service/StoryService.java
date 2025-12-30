@@ -22,4 +22,11 @@ public class StoryService {
     public List<Story> getAllStories(){
         return storyRepository.findAll();
     }
+
+    public Story createStory(String title, String description){
+        Story story = new Story();
+        story.setTitle(title);
+        story.setDescription(description);
+        return storyRepository.save(story);
+    }
 }
