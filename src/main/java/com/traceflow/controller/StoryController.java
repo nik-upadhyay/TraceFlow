@@ -23,10 +23,10 @@ public class StoryController {
     
     @PostMapping
     public StoryResponseDTO createStory(@Valid @RequestBody CreateStoryRequestDTO request){
-        Story story = storyService.createStory(request.getTitle(), request.getDescription());
+        Story story = storyService.createStory(request);
         return new StoryResponseDTO(story.getId(), story.getTitle(), story.getDescription());
     }
-    
+
     @GetMapping
     public List<StoryResponseDTO> getStories(){
         return storyService.getAllStories()
