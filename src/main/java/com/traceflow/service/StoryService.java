@@ -22,9 +22,9 @@ public class StoryService {
 
     public Story createStory(CreateStoryRequestDTO request){
         Story story = new Story();
-        story.setTitle(InputSanitizer.sanitizeAndValidate(request.getTitle(),"Title"));
-        story.setDescription(InputSanitizer.sanitizeAndValidate(request.getDescription(), "Description"));
-        story.setAuthor(InputSanitizer.sanitizeAndValidate(request.getAuthor(), "Author"));
+        story.setTitle(InputSanitizer.sanitizeAndValidate(request.getTitle().trim(),"Title"));
+        story.setDescription(InputSanitizer.sanitizeAndValidate(request.getDescription().trim(), "Description"));
+        story.setAuthor(InputSanitizer.sanitizeAndValidate(request.getAuthor().trim(), "Author"));
         
         return storyRepository.save(story);
     }

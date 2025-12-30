@@ -24,14 +24,14 @@ public class StoryController {
     @PostMapping
     public StoryResponseDTO createStory(@Valid @RequestBody CreateStoryRequestDTO request){
         Story story = storyService.createStory(request);
-        return new StoryResponseDTO(story.getId(), story.getTitle(), story.getDescription());
+        return new StoryResponseDTO(story.getId(), story.getTitle(), story.getDescription(), story.getAuthor());
     }
 
     @GetMapping
     public List<StoryResponseDTO> getStories(){
         return storyService.getAllStories()
         .stream()
-        .map(story -> new StoryResponseDTO(story.getId(), story.getTitle(), story.getDescription()))
+        .map(story -> new StoryResponseDTO(story.getId(), story.getTitle(), story.getDescription(), story.getAuthor()))
         .collect(Collectors.toList()
     );
     }
