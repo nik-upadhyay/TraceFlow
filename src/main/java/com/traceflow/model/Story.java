@@ -13,24 +13,24 @@ public class Story {
 
     private String title;
     private String description;
-    private String module;
+    private String author;
     
     public Story(){
     }
 
-    public Story(String title, String description, String module)
+    public Story(String title, String description, String author)
     {
         this.title = title;
         this.description = description;
-        this.module = module;
+        this.author = author;
     }
 
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public String getDescription() { return description; }
-    public String getModule() { return module; }
+    public String getAuthor() { return author; }
 
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
-    public void setModule(String module) { this.module = title; }
+    public void setAuthor(String author) { this.author = author; }
 }
